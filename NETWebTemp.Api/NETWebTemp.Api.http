@@ -1,0 +1,21 @@
+@NETWebTemp.Api_HostAddress = https://localhost:44303/api/
+@token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InVzZXJAZXhhbXBsZS5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMCIsImp0aSI6ImM1ZjRkY2VjLTc4Y2MtNDQ4ZS05MDA1LWQ3ZWQ2Y2YzZjQ1NyIsImV4cCI6MTc2NjU3MTE1NywiaXNzIjoiMTIzIiwiYXVkIjoiMTIzIn0.TinoGwDf3xlHeokJkTOzotAM0UhNys5vc1rn0ZErWc30XojcX0IWPiJ-tgcNp8pe1ftFw-wkdej6PGEeagVVhQ
+
+GET {{NETWebTemp.Api_HostAddress}}weatherforecast/Get
+Authorization: Bearer {{token}}
+Accept: application/json
+
+
+###
+
+POST {{NETWebTemp.Api_HostAddress}}Authenticate/Login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "account": "user",
+  "secret": "AAAaaa@@123",
+  "captcha": "123"
+}
+
+###

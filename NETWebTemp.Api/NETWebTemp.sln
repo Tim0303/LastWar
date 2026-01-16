@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETWebTemp.Api", "NETWebTemp.Api.csproj", "{6FC816A2-B54C-4B28-8795-D29224C10D3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFPowerTools", "..\EFPowerTools\EFPowerTools.csproj", "{A021D405-46A1-4D62-9671-A15A3B0B4908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenTool", "..\CodeGenTool\CodeGenTool.csproj", "{5497CEB8-6DD5-4994-98AD-54E6A0A01058}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETWebTemp.Service", "..\NETWebTemp.Service\NETWebTemp.Service.csproj", "{E90A43CB-4BAC-44D0-915F-6D7137FEF6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETWebTemp.Common", "..\NETWebTemp.Common\NETWebTemp.Common.csproj", "{A88C24E9-1080-4619-8FE3-9693AFE76791}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "netwebtemp.client", "..\netwebtemp.client\netwebtemp.client.esproj", "{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FC816A2-B54C-4B28-8795-D29224C10D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FC816A2-B54C-4B28-8795-D29224C10D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FC816A2-B54C-4B28-8795-D29224C10D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FC816A2-B54C-4B28-8795-D29224C10D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A021D405-46A1-4D62-9671-A15A3B0B4908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A021D405-46A1-4D62-9671-A15A3B0B4908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A021D405-46A1-4D62-9671-A15A3B0B4908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A021D405-46A1-4D62-9671-A15A3B0B4908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5497CEB8-6DD5-4994-98AD-54E6A0A01058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5497CEB8-6DD5-4994-98AD-54E6A0A01058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5497CEB8-6DD5-4994-98AD-54E6A0A01058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E90A43CB-4BAC-44D0-915F-6D7137FEF6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E90A43CB-4BAC-44D0-915F-6D7137FEF6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E90A43CB-4BAC-44D0-915F-6D7137FEF6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E90A43CB-4BAC-44D0-915F-6D7137FEF6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88C24E9-1080-4619-8FE3-9693AFE76791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88C24E9-1080-4619-8FE3-9693AFE76791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88C24E9-1080-4619-8FE3-9693AFE76791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88C24E9-1080-4619-8FE3-9693AFE76791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C94C3A7E-429C-4B1C-AFF4-3C3256FDBE0F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
