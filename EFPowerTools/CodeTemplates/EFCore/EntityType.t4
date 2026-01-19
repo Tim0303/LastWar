@@ -20,6 +20,32 @@
         // Don't scaffold these
         return "";
     }
+    var identityBaseProperties = new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
+{
+    ["IdentityUser"] = new HashSet<string>(new[] {
+        "Id", "UserName", "NormalizedUserName", "Email", "NormalizedEmail", "EmailConfirmed",
+        "PasswordHash", "SecurityStamp", "ConcurrencyStamp", "PhoneNumber", "PhoneNumberConfirmed",
+        "TwoFactorEnabled", "LockoutEnd", "LockoutEnabled", "AccessFailedCount"
+    }, StringComparer.OrdinalIgnoreCase),
+    ["IdentityRole"] = new HashSet<string>(new[] {
+        "Id", "Name", "NormalizedName", "ConcurrencyStamp"
+    }, StringComparer.OrdinalIgnoreCase),
+    ["IdentityRoleClaim"] = new HashSet<string>(new[] {
+        "Id", "RoleId", "ClaimType", "ClaimValue"
+    }, StringComparer.OrdinalIgnoreCase),
+    ["IdentityUserClaim"] = new HashSet<string>(new[] {
+        "Id", "UserId", "ClaimType", "ClaimValue"
+    }, StringComparer.OrdinalIgnoreCase),
+    ["IdentityUserLogin"] = new HashSet<string>(new[] {
+        "LoginProvider", "ProviderKey", "ProviderDisplayName", "UserId"
+    }, StringComparer.OrdinalIgnoreCase),
+    ["IdentityUserRole"] = new HashSet<string>(new[] {
+        "UserId", "RoleId"
+    }, StringComparer.OrdinalIgnoreCase),
+    ["IdentityUserToken"] = new HashSet<string>(new[] {
+        "UserId", "LoginProvider", "Name", "Value"
+    }, StringComparer.OrdinalIgnoreCase)
+};
 
     var services = (IServiceProvider)Host;
     var annotationCodeGenerator = services.GetRequiredService<IAnnotationCodeGenerator>();
@@ -122,9 +148,26 @@ else
 public class <#= EntityType.Name #><#= baseClass #>
 {
 <#
+    var basePropertyNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+if (identityBaseMap.TryGetValue(entityName, out var identityBaseType))
+{
+    var baseTypeName = identityBaseType.Split('<')[0];
+    if (identityBaseProperties.TryGetValue(baseTypeName, out var props))
+    {
+        basePropertyNames = props;
+    }
+}
+
     var firstProperty = true;
+
+
     foreach (var property in EntityType.GetProperties().OrderBy(p => p.GetColumnOrder() ?? -1))
     {
+        if (basePropertyNames.Contains(property.Name))
+    {
+        continue; // 跳過基底類別已定義的屬性
+    }
         if (!firstProperty)
         {
             WriteLine("");

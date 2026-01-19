@@ -40,6 +40,16 @@ public partial class MyDBContext(DbContextOptions<MyDBContext> options, IHttpCon
     public DbSet<ApplicationUserToken> ApplicationUserTokens { get; set; }
 
     /// <summary>
+    /// 玩家資料
+    /// </summary>
+    public DbSet<Player> Players { get; set; }
+
+    /// <summary>
+    /// 玩家資料快照
+    /// </summary>
+    public DbSet<PlayerSnapshot> PlayerSnapshots { get; set; }
+
+    /// <summary>
     /// Units
     /// </summary>
     public DbSet<Unit> Units { get; set; }
@@ -61,12 +71,13 @@ public partial class MyDBContext(DbContextOptions<MyDBContext> options, IHttpCon
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserClaimConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserLoginConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserTokenConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.PlayerConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.PlayerSnapshotConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.UnitConfiguration());
-        OnModelCreatingGeneratedFunctions(modelBuilder);
-        //OnModelCreatingPartial(modelBuilder);
+        // OnModelCreatingPartial(modelBuilder);
     }
 
-    // private partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    // partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
     /// <summary>
     /// override SaveChanges

@@ -337,10 +337,10 @@ public partial class <#= Options.ContextName #> (DbContextOptions<<#= Options.Co
     }
 #>
 
-        OnModelCreatingPartial(modelBuilder);
+        // OnModelCreatingPartial(modelBuilder);
     }
 
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+    // partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
     /// <summary>
     /// override SaveChanges

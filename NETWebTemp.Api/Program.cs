@@ -1,4 +1,7 @@
+using NETWebTemp.Api.Middleware;
 using NETWebTemp.Api.Settings;
+using NLog;
+using NLog.Web;
 
 namespace NETWebTemp.Api
 {
@@ -34,7 +37,15 @@ namespace NETWebTemp.Api
             // µù¥UDI
             builder.AddDISettings();
 
+            // NLog ³]©w
+            builder.Logging.ClearProviders();
+            builder.Host.UseNLog();
+            LogManager.Configuration.Variables["connectionString"] = connectionString;
+
             var app = builder.Build();
+
+            // Middleware
+            app.UseMiddleware<ApiRequestLoggingMiddleware>();
 
             app.UseDefaultFiles();
             app.UseStaticFiles();

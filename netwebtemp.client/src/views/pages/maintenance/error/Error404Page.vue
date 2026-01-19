@@ -5,16 +5,37 @@
     <v-col class="d-flex align-center justify-center">
       <div class="text-center">
         <div class="CardMediaWrapper">
-          <img src="@/assets/images/maintenance/img-error-bg.svg" alt="grid" class="w-100" />
-          <img src="@/assets/images/maintenance/img-error-blue.svg" alt="grid" class="CardMediaParts" />
-          <img src="@/assets/images/maintenance/img-error-text.svg" alt="build" class="CardMediaBuild" />
-          <img src="@/assets/images/maintenance/img-error-purple.svg" alt="build" class="CardMediaBuild" />
+          <img
+            src="@/assets/images/maintenance/img-error-bg.svg"
+            alt="grid"
+            class="w-100"
+          />
+          <img
+            src="@/assets/images/maintenance/img-error-blue.svg"
+            alt="grid"
+            class="CardMediaParts"
+          />
+          <img
+            src="@/assets/images/maintenance/img-error-text.svg"
+            alt="build"
+            class="CardMediaBuild"
+          />
+          <img
+            src="@/assets/images/maintenance/img-error-purple.svg"
+            alt="build"
+            class="CardMediaBuild"
+          />
         </div>
         <h1 class="text-h1">Something is wrong</h1>
         <p>
-          <small>The page you are looking was moved, removed, <br />renamed, or might never exist! </small>
+          <small
+            >The page you are looking was moved, removed, <br />renamed, or might never
+            exist!
+          </small>
         </p>
-        <v-btn variant="flat" color="primary" class="mt-4" to="/" prepend-icon="$home"> Home</v-btn>
+        <v-btn variant="flat" color="primary" class="mt-4" to="/" prepend-icon="$home">
+          Home</v-btn
+        >
       </div>
     </v-col>
   </v-row>

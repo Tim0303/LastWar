@@ -28,6 +28,7 @@ export default [
   {
     name: 'custom/prettier-rules',
     rules: {
+      'vue/valid-v-slot': 'off',
       'prettier/prettier': [
         'error',
         {
@@ -36,8 +37,14 @@ export default [
           singleQuote: true,
           trailingComma: 'none',
           tabWidth: 2,
-          useTabs: false,
-          endOfLine: 'lf'
+          useTabs: false
+        }
+      ],
+      'vue/max-attributes-per-line': [
+        'error',
+        {
+          singleline: 1,
+          multiline: 1
         }
       ]
     }

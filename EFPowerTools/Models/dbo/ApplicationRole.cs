@@ -7,8 +7,6 @@ namespace EFPowerTools.Models.dbo;
 /// </summary>
 public class ApplicationRole : IdentityRole<Guid>
 {
-    public Guid Id { get; set; }
-
     /// <summary>
     /// 個人首頁區塊
     /// </summary>
@@ -63,12 +61,6 @@ public class ApplicationRole : IdentityRole<Guid>
     /// 刪除時間
     /// </summary>
     public DateTime? DeletedTime { get; set; }
-
-    public string? Name { get; set; }
-
-    public string? NormalizedName { get; set; }
-
-    public string? ConcurrencyStamp { get; set; }
 
     public List<ApplicationRoleClaim> ApplicationRoleClaims { get; set; } = new List<ApplicationRoleClaim>();
 

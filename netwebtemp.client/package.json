@@ -11,6 +11,7 @@
     "lint": "eslint . --fix --cache"
   },
   "dependencies": {
+    "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.4.47",
     "@tsconfig/node24": "^24.0.3",
     "@typescript-eslint/parser": "8.47.0",

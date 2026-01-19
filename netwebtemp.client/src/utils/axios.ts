@@ -1,38 +1,66 @@
 import axios from 'axios';
 
-// 取得 JWT token
+/**
+ * 取得 JWT token
+ * @returns
+ */
 function getJwtToken(): string | null {
-  return localStorage.getItem('user:accessToken');
+  // 取得 user 的 accessToken
+  const user = localStorage.getItem('user');
+  if (user) {
+    const parsedUser = JSON.parse(user);
+    return parsedUser.accessToken || null;
+  }
+  return null;
 }
 
-// 儲存新 token
+/**
+ * 儲存新 token
+ * @param token
+ */
 function setJwtToken(token: string) {
-  localStorage.setItem('user:accessToken', token);
+  localStorage.setItem('user', token);
 }
 
-// 取得 refresh token
+/**
+ * 取得 refresh token
+ * @returns
+ */
 function getRefreshToken(): string | null {
-  return localStorage.getItem('user:refreshToken');
+  // 取得 user
+  const user = localStorage.getItem('user');
+  if (user) {
+    const parsedUser = JSON.parse(user);
+    return parsedUser.refreshToken || null;
+  }
+  return null;
 }
 
-// 刷新 token 的 API
+/**
+ * 刷新 token 的 API
+ * @returns
+ */
 async function refreshToken() {
   const refresh_token = getRefreshToken();
   if (!refresh_token) throw new Error('No refresh token');
   const response = await axios.post('/api/auth/refresh', { refresh_token });
-  setJwtToken(response.data.access_token);
+  setJwtToken(response.data);
   if (response.data.refresh_token) {
     localStorage.setItem('user:refreshToken', response.data.refresh_token);
   }
   return response.data.access_token;
 }
 
-// 建立 axios 實例
+/**
+ * 建立 axios 實例
+ */
 const api = axios.create({
   baseURL: '/api'
 });
 
-// 請求攔截器，自動帶入 JWT token
+/**
+ * 請求攔截器，自動帶入 JWT token
+ */
 api.interceptors.request.use((config) => {
   const token = getJwtToken();
   if (token) {
@@ -41,7 +69,9 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// 響應攔截器，自動處理 401 過期並刷新 token
+/**
+ * 響應攔截器，自動處理 401 錯誤並刷新 token
+ */
 let isRefreshing = false;
 let failedQueue: any[] = [];
 

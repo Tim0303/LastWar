@@ -8,6 +8,7 @@ namespace NETWebTemp.Api.Settings
         public static void AddDISettings(this IHostApplicationBuilder builder)
         {
             builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
+            builder.Services.AddScoped<IPlayerService, PlayerService>();
         }
     }
 }

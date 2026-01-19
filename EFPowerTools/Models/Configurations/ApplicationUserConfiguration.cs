@@ -57,23 +57,6 @@ namespace EFPowerTools.Models.Configurations
 
             entity.HasOne(d => d.Unit).WithMany(p => p.ApplicationUsers).HasForeignKey(d => d.UnitId);
 
-            //entity.HasMany(d => d.Roles).WithMany(p => p.Users)
-            //    .UsingEntity<Dictionary<string, object>>(
-            //        "AspNetUserRole",
-            //        r => r.HasOne<ApplicationRole>().WithMany()
-            //            .HasForeignKey("RoleId")
-            //            .OnDelete(DeleteBehavior.ClientSetNull)
-            //            .HasConstraintName("FK_ApplicationUserRole_ApplicationRole_RoleId"),
-            //        l => l.HasOne<ApplicationUser>().WithMany()
-            //            .HasForeignKey("UserId")
-            //            .OnDelete(DeleteBehavior.ClientSetNull)
-            //            .HasConstraintName("FK_ApplicationUserRole_ApplicationUser_UserId"),
-            //        j =>
-            //        {
-            //            j.HasKey("UserId", "RoleId").HasName("PK_ApplicationUserRole");
-            //            j.ToTable("AspNetUserRoles");
-            //            j.HasIndex(new[] { "RoleId" }, "IX_ApplicationUserRole_RoleId");
-            //        });
 
             OnConfigurePartial(entity);
         }

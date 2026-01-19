@@ -47,6 +47,14 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Player]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PlayerSnapshot]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Unit]",
          "ObjectType": 0
       },
