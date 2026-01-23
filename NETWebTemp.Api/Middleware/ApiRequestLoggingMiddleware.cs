@@ -1,16 +1,15 @@
-﻿using System.Text;
+﻿using NLog;
+using System.Text;
 
 namespace NETWebTemp.Api.Middleware
 {
     public class ApiRequestLoggingMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger<ApiRequestLoggingMiddleware> _logger;
 
-        public ApiRequestLoggingMiddleware(RequestDelegate next, ILogger<ApiRequestLoggingMiddleware> logger)
+        public ApiRequestLoggingMiddleware(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
@@ -48,18 +47,23 @@ namespace NETWebTemp.Api.Middleware
                 ? context.User.FindFirst("sub")?.Value ?? context.User.Identity.Name
                 : null;
 
-            // 記錄 log
-            _logger.LogInformation(
-                "API Request | Method: {Method} | Path: {Path} | Query: {Query} | Body: {Body} | Form: {Form} | Status: {Status} | IP: {IP} | UserId: {UserId}",
-                context.Request.Method,
-                context.Request.Path + context.Request.QueryString,
-                context.Request.QueryString.HasValue ? context.Request.QueryString.Value : "",
-                requestBody,
-                requestForm,
-                statusCode,
-                context.Connection.RemoteIpAddress?.ToString(),
-                userId
-            );
+            // 建立 NLog LogEventInfo 並設定 properties
+            var logEvent = new LogEventInfo(NLog.LogLevel.Info, "database", "API Request");
+            logEvent.Properties["logtime"] = DateTime.Now;
+            logEvent.Properties["logger"] = "ApiRequestLoggingMiddleware";
+            logEvent.Properties["loglevel"] = "Info";
+            logEvent.Properties["message"] = "API Request";
+            logEvent.Properties["httpmethod"] = context.Request.Method;
+            logEvent.Properties["path"] = context.Request.Path + context.Request.QueryString;
+            logEvent.Properties["parameters"] = context.Request.QueryString.HasValue ? context.Request.QueryString.Value : "";
+            logEvent.Properties["requestbody"] = requestBody;
+            logEvent.Properties["requestform"] = requestForm;
+            logEvent.Properties["httpstatuscode"] = statusCode;
+            logEvent.Properties["ip"] = context.Connection.RemoteIpAddress?.ToString();
+            logEvent.Properties["userid"] = userId;
+
+            var logger = LogManager.GetLogger("database");
+            logger.Log(logEvent);
         }
     }
 }

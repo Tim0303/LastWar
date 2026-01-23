@@ -156,6 +156,18 @@ const step1Validate = () => {
         <v-row>
           <v-col
             cols="12"
+            md="12">
+            <div class="mb-2">注意! 輸入玩家ID 不是遊戲名稱</div>
+            <v-img
+              :width="300"
+              aspect-ratio="16/9"
+              cover
+              src="/src/assets/images/1768716910180.jpg"></v-img>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col
+            cols="12"
             md="12"
             class="d-flex justify-center">
             <v-text-field

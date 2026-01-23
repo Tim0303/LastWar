@@ -40,6 +40,11 @@ public partial class MyDBContext(DbContextOptions<MyDBContext> options, IHttpCon
     public DbSet<ApplicationUserToken> ApplicationUserTokens { get; set; }
 
     /// <summary>
+    /// Log
+    /// </summary>
+    public DbSet<Log> Logs { get; set; }
+
+    /// <summary>
     /// 玩家資料
     /// </summary>
     public DbSet<Player> Players { get; set; }
@@ -58,19 +63,13 @@ public partial class MyDBContext(DbContextOptions<MyDBContext> options, IHttpCon
     {
         base.OnModelCreating(modelBuilder);
 
-        // 明確指定 IdentityUserRole<Guid> 對應 AspNetUserRoles 資料表
-        modelBuilder.Entity<IdentityUserRole<Guid>>(b =>
-        {
-            b.ToTable("AspNetUserRoles");
-            b.HasKey(r => new { r.UserId, r.RoleId });
-        });
-
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationRoleConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationRoleClaimConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserClaimConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserLoginConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.ApplicationUserTokenConfiguration());
+        modelBuilder.ApplyConfiguration(new Configurations.LogConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.PlayerConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.PlayerSnapshotConfiguration());
         modelBuilder.ApplyConfiguration(new Configurations.UnitConfiguration());

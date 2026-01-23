@@ -148,6 +148,16 @@ getList();
             :headers="headers"
             loading-text="Loading... Please wait"
             :loading="loading">
+            <template v-slot:item.tankPower="{ item }">
+              <!-- 超過40紅字 -->
+              <span :style="item.tankPower > 40 ? 'color: red;' : ''">{{ item.tankPower }}</span>
+            </template>
+            <template v-slot:item.aircraftPower="{ item }">
+              <span :style="item.aircraftPower > 40 ? 'color: red;' : ''">{{ item.aircraftPower }}</span>
+            </template>
+            <template v-slot:item.missilePower="{ item }">
+              <span :style="item.missilePower > 40 ? 'color: red;' : ''">{{ item.missilePower }}</span>
+            </template>
             <template v-slot:item.hasT10="{ item }">
               <span v-if="item.hasT10">Y</span>
               <span v-else>N</span>

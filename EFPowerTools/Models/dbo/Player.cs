@@ -1,4 +1,9 @@
-﻿namespace EFPowerTools.Models.dbo;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+
+
+namespace EFPowerTools.Models.dbo;
 
 /// <summary>
 /// 玩家資料
@@ -82,3 +87,4 @@ public class Player : IModifyRecord
 
     public List<PlayerSnapshot> PlayerSnapshots { get; set; } = new List<PlayerSnapshot>();
 }
+

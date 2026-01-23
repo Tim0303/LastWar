@@ -47,6 +47,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Log]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Player]",
          "ObjectType": 0
       },

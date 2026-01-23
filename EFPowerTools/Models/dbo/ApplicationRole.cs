@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace EFPowerTools.Models.dbo;
 
@@ -66,3 +69,4 @@ public class ApplicationRole : IdentityRole<Guid>
 
     public List<ApplicationUser> Users { get; set; } = new List<ApplicationUser>();
 }
+

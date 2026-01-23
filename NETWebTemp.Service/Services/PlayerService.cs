@@ -128,6 +128,24 @@ namespace NETWebTemp.Service.Services
 
             if (data != null)
             {
+                // 建立快照
+                var snapshot = new PlayerSnapshot()
+                {
+                    PlayerId = data.PlayerId,
+                    Name = data.Name,
+                    HeadquartersLv = data.HeadquartersLv,
+                    TankPower = data.TankPower,
+                    AircraftPower = data.AircraftPower,
+                    MissilePower = data.MissilePower,
+                    HasT10 = data.HasT10,
+                    TechSpecialForces = data.TechSpecialForces,
+                    TechSiegeToSeize = data.TechSiegeToSeize,
+                    TechHero = data.TechHero,
+                    TechDefenseFortifications = data.TechDefenseFortifications,
+                };
+
+                await _dbContext.PlayerSnapshots.AddAsync(snapshot);
+
                 data.HeadquartersLv = param.HeadquartersLv;
                 data.TankPower = param.TankPower;
                 data.AircraftPower = param.AircraftPower;
